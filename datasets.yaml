@@ -1,0 +1,15 @@
+version: 1
+pillar: research-econ-markets-style
+title: "Economics, markets, style signals"
+streaming_preferred: true
+
+huggingface:
+  - repo_id: nyu-mml/glue
+    config: cola
+    split: train[:2%]
+    streaming: true
+    note: Tiny GLUE stream for CI / dataloader sanity — replace with domain datasets as charters land.
+
+kaggle: []
+
+search_keywords: [FRED series, equity OHLCV, fashion trend indices]
