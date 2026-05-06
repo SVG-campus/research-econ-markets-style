@@ -9,6 +9,11 @@ huggingface:
     split: train[:2%]
     streaming: true
     note: Tiny GLUE stream for CI / dataloader sanity — replace with domain datasets as charters land.
+  - repo_id: takala/financial_phrasebank
+    config: sentences_50agree
+    split: train[:5%]
+    streaming: true
+    note: Small finance-sentiment stream for pipeline smoke (verify config name if Hub schema changes).
 
 kaggle: []
 

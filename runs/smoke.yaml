@@ -1,0 +1,14 @@
+version: 1
+pillar: research-econ-markets-style
+seeds:
+  global_default: 42
+methodology_caps:
+  bootstrap_mean_ci:
+    n_boot_max: 5000
+    alpha: 0.05
+  permutation_test:
+    n_perm_max: 999
+run_card:
+  required_before_promotion: true
+notes:
+  - Increase caps only on Kaggle/HF Jobs; always log run_id and seed with outputs.

@@ -1,6 +1,6 @@
 # Pillar progress — `research-econ-markets-style`
 
-**Overall solution proximity (rubric): ~23%**.
+**Overall solution proximity (rubric): ~27%**.
 
 See: [meta `docs/PILLAR_PROGRESS.md`](https://github.com/SVG-campus/Research-Apriori/blob/main/docs/PILLAR_PROGRESS.md).
 
@@ -8,8 +8,8 @@ See: [meta `docs/PILLAR_PROGRESS.md`](https://github.com/SVG-campus/Research-Apr
 |------|---:|------|
 | Charter + prereg | 42 | Add walk-forward + leakage checklist per notebook |
 | Layer A / nulls | 14 | Bootstrap on returns needs documented path assumptions |
-| Reproducibility | 40 | Submodule CI |
-| Domain data | 12 | FRED / OHLCV not yet pinned |
+| Reproducibility | **43** | `runs/smoke.yaml` |
+| Domain data | **18** | GLUE + `takala/financial_phrasebank` / `sentences_50agree` pinned |
 
 ## Links
 

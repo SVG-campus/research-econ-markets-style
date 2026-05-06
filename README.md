@@ -27,3 +27,7 @@ Heavy runs: use Kaggle or Hugging Face Jobs (see meta repo `AGENTS.md`).
 ## Progress
 
 See [docs/PROGRESS.md](docs/PROGRESS.md) for rubric-based **% proximity** to a defensible answer and links to shared methodology skills in the meta repo.
+
+## Smoke caps
+
+Notebook and local MC jobs should respect [runs/smoke.yaml](runs/smoke.yaml) (`n_boot_max`, `n_perm_max`); raise caps only on Kaggle/HF Jobs with a new `run_id`.
