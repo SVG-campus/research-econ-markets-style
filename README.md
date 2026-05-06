@@ -23,3 +23,7 @@ pytest -q
 ```
 
 Heavy runs: use Kaggle or Hugging Face Jobs (see meta repo `AGENTS.md`).
+
+## Progress
+
+See [docs/PROGRESS.md](docs/PROGRESS.md) for rubric-based **% proximity** to a defensible answer and links to shared methodology skills in the meta repo.
