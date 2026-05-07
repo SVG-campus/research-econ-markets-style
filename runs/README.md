@@ -8,7 +8,7 @@ On **CI failure**, GitHub Actions uploads `notebooks/`, `runs/`, and `scripts/ci
 
 Optional rows may set `enabled: false` so future charter notebooks stay listed without running in CI until they are stable headless.
 
-**`notebooks/CHARTER_SHELL.ipynb`** (minimal preamble + run card) runs in CI **after** the three smoke notebooks—extend it as the charter grows.
+**`notebooks/CHARTER_SHELL.ipynb`** (minimal preamble + run card) runs in CI **after** the three `SMOKE_*.ipynb` notebooks (see [`ci_notebooks.yaml`](ci_notebooks.yaml) for order) and **before** `CHARTER_EXTENDED_LIGHT` and the domain stream charter—extend it as the charter grows.
 
 **`notebooks/CHARTER_EXTENDED_LIGHT.ipynb`** (synthetic mean + run card) runs next as a light Layer A–shaped check.
 
