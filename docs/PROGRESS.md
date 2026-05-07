@@ -12,7 +12,7 @@ See the full rubric and sibling pillars: [meta `docs/PILLAR_PROGRESS.md`](https:
 |------|---:|------|
 | Charter + prereg | 56 | `docs/PREREG.md` + `METHODS.md` |
 | Layer A / nulls | 36 | `tests/test_layer_a_permutation_smoke.py` + `notebooks/SMOKE_LAYER_A.ipynb` |
-| Reproducibility | 74 | `runs/smoke.yaml`, `methodology_preamble`, CI pytest |
+| Reproducibility | 77 | `runs/smoke.yaml`, `methodology_preamble`, CI pytest |
 | Domain data | 36 | `datasets.yaml` Hub pins + `reference_streams` |
 
 ## Links

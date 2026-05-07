@@ -21,6 +21,7 @@ See [datasets.yaml](datasets.yaml) — prefer **streaming** Hub / Kaggle API ove
 pip install -U pip
 pip install -e ".[dev]"
 pytest -q
+python scripts/ci_execute_smoke_nb.py
 ```
 
 Heavy runs: use Kaggle or Hugging Face Jobs (see meta repo `AGENTS.md`).

@@ -17,3 +17,5 @@ jobs:
         run: pip install -U pip && pip install ".[dev]"
       - name: Pytest
         run: pytest -q
+      - name: Execute smoke notebook (headless)
+        run: python scripts/ci_execute_smoke_nb.py
