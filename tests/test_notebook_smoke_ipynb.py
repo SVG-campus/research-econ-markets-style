@@ -15,6 +15,7 @@ def test_ci_notebooks_config_lists_smoke_paths() -> None:
     assert "SMOKE_LAYER_A.ipynb" in txt
     assert "SMOKE_BOOTSTRAP.ipynb" in txt
     assert "SMOKE_IMPORTS.ipynb" in txt
+    assert "CHARTER_SHELL.ipynb" in txt
     assert "enabled: false" in txt
 
 
@@ -64,6 +65,22 @@ def test_smoke_imports_notebook_wired() -> None:
         blob_parts.append(src)
     blob = "\n".join(blob_parts)
     assert "init_notebook" in blob and "METHODS.md" in blob
+
+
+def test_charter_shell_notebook_wired() -> None:
+    p = Path(__file__).resolve().parents[1] / "notebooks" / "CHARTER_SHELL.ipynb"
+    assert p.is_file(), f"missing {p}"
+    nb = json.loads(p.read_text(encoding="utf-8"))
+    blob_parts: list[str] = []
+    for c in nb.get("cells", []):
+        if c.get("cell_type") != "code":
+            continue
+        src = c.get("source", "")
+        if isinstance(src, list):
+            src = "".join(src)
+        blob_parts.append(src)
+    blob = "\n".join(blob_parts)
+    assert "charter_shell_template" in blob and "assert_run_card" in blob
 
 
 def test_ci_notebooks_yaml_schema() -> None:

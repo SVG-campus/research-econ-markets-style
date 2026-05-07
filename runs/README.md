@@ -7,3 +7,5 @@
 On **CI failure**, GitHub Actions uploads `notebooks/`, `runs/`, and `scripts/ci_execute_smoke_nb.py` as a downloadable artifact for debugging.
 
 Optional rows may set `enabled: false` so future charter notebooks stay listed without running in CI until they are stable headless.
+
+The committed **`notebooks/CHARTER_SHELL.ipynb`** is a minimal charter-shaped template (preamble + run card only). It is listed with `enabled: false` by default—extend it with real Layer A cells, verify headless execution locally, then set `enabled: true`.

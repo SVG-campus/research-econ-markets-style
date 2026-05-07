@@ -5,6 +5,8 @@ from __future__ import annotations
 import importlib.util
 from pathlib import Path
 
+import yaml
+
 
 def _load_ci_execute(root: Path):
     mod_path = root / "scripts" / "ci_execute_smoke_nb.py"
@@ -25,9 +27,18 @@ def test_load_jobs_includes_three_smoke_notebooks() -> None:
     assert root.joinpath("notebooks", "SMOKE_IMPORTS.ipynb").resolve() in paths
 
 
-def test_load_jobs_excludes_disabled_placeholder() -> None:
+def test_load_jobs_excludes_all_disabled_paths() -> None:
     root = Path(__file__).resolve().parents[1]
+    cfg = yaml.safe_load((root / "runs" / "ci_notebooks.yaml").read_text(encoding="utf-8"))
+    disabled: list[str] = []
+    for row in cfg.get("notebooks", []):
+        if row.get("enabled", True) is False:
+            path = row.get("path")
+            if isinstance(path, str):
+                disabled.append(path)
+    assert disabled, "fixture expects at least one disabled row in ci_notebooks.yaml"
     mod = _load_ci_execute(root)
     jobs = mod._load_jobs(root)
     rels = {p.relative_to(root).as_posix() for p, _ in jobs}
-    assert "notebooks/CHARTER_PLACEHOLDER.ipynb" not in rels
+    for rel in disabled:
+        assert rel not in rels
