@@ -27,6 +27,7 @@ def test_load_jobs_includes_enabled_ci_notebooks() -> None:
     assert root.joinpath("notebooks", "SMOKE_IMPORTS.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "CHARTER_SHELL.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "CHARTER_EXTENDED_LIGHT.ipynb").resolve() in paths
+    assert root.joinpath("notebooks", "CHARTER_LAYER_A_MULTIDRAW_SMOKE.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "CHARTER_YELP_STREAM_SMOKE.ipynb").resolve() in paths
 
 
