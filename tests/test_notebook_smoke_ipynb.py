@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import yaml
+
 
 def test_ci_notebooks_config_lists_smoke_paths() -> None:
     p = Path(__file__).resolve().parents[1] / "runs" / "ci_notebooks.yaml"
@@ -44,3 +46,16 @@ def test_smoke_bootstrap_notebook_wired() -> None:
         blob_parts.append(src)
     blob = "\n".join(blob_parts)
     assert "boot_mean" in blob and "assert_run_card" in blob
+
+
+def test_ci_notebooks_yaml_schema() -> None:
+    p = Path(__file__).resolve().parents[1] / "runs" / "ci_notebooks.yaml"
+    data = yaml.safe_load(p.read_text(encoding="utf-8"))
+    assert data.get("version") == 1
+    rows = data.get("notebooks")
+    assert isinstance(rows, list) and len(rows) >= 1
+    for row in rows:
+        path = row.get("path")
+        assert isinstance(path, str) and path.endswith(".ipynb")
+        t = int(row.get("timeout_seconds", 120))
+        assert 30 <= t <= 900
