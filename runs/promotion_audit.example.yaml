@@ -1,6 +1,9 @@
 # Schema-only example — see https://github.com/SVG-campus/Research-Apriori/blob/main/docs/PROMOTION_CHECKLIST.md
 version: 1
 pillar: research-econ-markets-style
+trace_run_ids:
+  - charter_layer_a_multidraw_smoke
+  - charter_econ_yelp_stream_smoke
 example_entry:
   promoted_at: YYYY-MM-DD
   run_id: charter_econ_yelp_stream_smoke
