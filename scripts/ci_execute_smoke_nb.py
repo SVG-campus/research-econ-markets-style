@@ -1,6 +1,9 @@
 """Execute notebooks listed in runs/ci_notebooks.yaml (GitHub Actions).
 
 Falls back to `notebooks/SMOKE_LAYER_A.ipynb` if the config file is absent.
+
+Rows may set `enabled: false` to keep charter notebook paths in-repo without
+executing them in CI yet.
 """
 
 from __future__ import annotations
@@ -18,6 +21,8 @@ def _load_jobs(root: Path) -> list[tuple[Path, int]]:
     data = yaml.safe_load(cfg.read_text(encoding="utf-8")) or {}
     jobs: list[tuple[Path, int]] = []
     for row in data.get("notebooks", []):
+        if row.get("enabled", True) is False:
+            continue
         rel = row.get("path")
         if not rel:
             continue
