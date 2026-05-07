@@ -21,6 +21,14 @@ def test_ci_notebooks_config_lists_smoke_paths() -> None:
     assert "enabled: false" in txt
 
 
+def test_promotion_audit_example_exists() -> None:
+    p = Path(__file__).resolve().parents[1] / "runs" / "promotion_audit.example.yaml"
+    assert p.is_file(), f"missing {p}"
+    txt = p.read_text(encoding="utf-8")
+    assert "example_entry:" in txt and "commit_sha:" in txt
+    assert "PROMOTION_CHECKLIST" in txt
+
+
 def test_smoke_notebook_contains_preamble() -> None:
     p = Path(__file__).resolve().parents[1] / "notebooks" / "SMOKE_LAYER_A.ipynb"
     assert p.is_file(), f"missing {p}"

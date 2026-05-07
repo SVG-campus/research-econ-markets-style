@@ -1,0 +1,11 @@
+# Schema-only example — see https://github.com/SVG-campus/Research-Apriori/blob/main/docs/PROMOTION_CHECKLIST.md
+version: 1
+pillar: research-econ-markets-style
+example_entry:
+  promoted_at: YYYY-MM-DD
+  run_id: charter_extended_light_smoke
+  source_path: notebooks/CHARTER_EXTENDED_LIGHT.ipynb
+  commit_sha: REQUIRED_BEFORE_CANONICAL
+  ci_run_url: OPTIONAL_ACTIONS_URL
+  metric_excerpt: SHORT_RUN_CARD_METRIC
+  null_method: RUN_CARD_NULL_FIELD
