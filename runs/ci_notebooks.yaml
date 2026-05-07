@@ -1,0 +1,6 @@
+version: 1
+notebooks:
+  - path: notebooks/SMOKE_LAYER_A.ipynb
+    timeout_seconds: 120
+  - path: notebooks/SMOKE_BOOTSTRAP.ipynb
+    timeout_seconds: 120
