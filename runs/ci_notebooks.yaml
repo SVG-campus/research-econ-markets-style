@@ -8,6 +8,8 @@ notebooks:
     timeout_seconds: 60
   - path: notebooks/CHARTER_SHELL.ipynb
     timeout_seconds: 120
-  - path: notebooks/CHARTER_EXTENDED_PLACEHOLDER.ipynb
+  - path: notebooks/CHARTER_EXTENDED_LIGHT.ipynb
+    timeout_seconds: 180
+  - path: notebooks/FUTURE_CHARTER_SLOT.ipynb
     enabled: false
     timeout_seconds: 900

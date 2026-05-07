@@ -10,4 +10,6 @@ Optional rows may set `enabled: false` so future charter notebooks stay listed w
 
 **`notebooks/CHARTER_SHELL.ipynb`** (minimal preamble + run card) runs in CI **after** the three smoke notebooks—extend it as the charter grows.
 
-**`CHARTER_EXTENDED_PLACEHOLDER.ipynb`** is listed disabled with **no** committed file: replace that row with a real path when you add a heavier charter notebook, verify headless execution locally, then set `enabled: true`.
+**`notebooks/CHARTER_EXTENDED_LIGHT.ipynb`** (synthetic mean + run card) runs next as a light Layer A–shaped check.
+
+**`FUTURE_CHARTER_SLOT.ipynb`** is listed disabled with **no** committed file: replace that row with a real path when you add a heavier charter notebook, verify headless execution locally, then set `enabled: true`.
