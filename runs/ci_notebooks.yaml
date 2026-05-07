@@ -7,5 +7,7 @@ notebooks:
   - path: notebooks/SMOKE_IMPORTS.ipynb
     timeout_seconds: 60
   - path: notebooks/CHARTER_SHELL.ipynb
+    timeout_seconds: 120
+  - path: notebooks/CHARTER_EXTENDED_PLACEHOLDER.ipynb
     enabled: false
-    timeout_seconds: 600
+    timeout_seconds: 900

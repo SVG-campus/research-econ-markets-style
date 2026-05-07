@@ -36,7 +36,7 @@ Notebook and local MC jobs should respect [runs/smoke.yaml](runs/smoke.yaml) (`n
 
 ## CI notebooks (GitHub Actions)
 
-The ordered list for headless execution lives in [runs/ci_notebooks.yaml](runs/ci_notebooks.yaml) and is run locally via `python scripts/ci_execute_smoke_nb.py` (same command as CI after `pytest`). Add notebooks here (or extend `notebooks/CHARTER_SHELL.ipynb`) with `enabled: false` until they execute reliably within `timeout_seconds`; then set `enabled: true`. On CI failure, GitHub Actions attaches `notebooks/`, `runs/`, and the executor script as a downloadable artifact — see [runs/README.md](runs/README.md).
+The ordered list for headless execution lives in [runs/ci_notebooks.yaml](runs/ci_notebooks.yaml) and is run locally via `python scripts/ci_execute_smoke_nb.py` (same command as CI after `pytest`). By default CI runs **three** smoke notebooks plus **`CHARTER_SHELL.ipynb`**. Add more rows or replace the disabled **`CHARTER_EXTENDED_PLACEHOLDER.ipynb`** slot with a real notebook when ready; keep `enabled: false` until a path runs reliably within `timeout_seconds`, then set `enabled: true`. On CI failure, GitHub Actions attaches `notebooks/`, `runs/`, and the executor script as a downloadable artifact — see [runs/README.md](runs/README.md).
 
 ## Notebook preamble (seeds + run card)
 

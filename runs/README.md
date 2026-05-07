@@ -8,4 +8,6 @@ On **CI failure**, GitHub Actions uploads `notebooks/`, `runs/`, and `scripts/ci
 
 Optional rows may set `enabled: false` so future charter notebooks stay listed without running in CI until they are stable headless.
 
-The committed **`notebooks/CHARTER_SHELL.ipynb`** is a minimal charter-shaped template (preamble + run card only). It is listed with `enabled: false` by default—extend it with real Layer A cells, verify headless execution locally, then set `enabled: true`.
+**`notebooks/CHARTER_SHELL.ipynb`** (minimal preamble + run card) runs in CI **after** the three smoke notebooks—extend it as the charter grows.
+
+**`CHARTER_EXTENDED_PLACEHOLDER.ipynb`** is listed disabled with **no** committed file: replace that row with a real path when you add a heavier charter notebook, verify headless execution locally, then set `enabled: true`.

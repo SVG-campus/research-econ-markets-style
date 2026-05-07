@@ -17,7 +17,7 @@ def _load_ci_execute(root: Path):
     return mod
 
 
-def test_load_jobs_includes_three_smoke_notebooks() -> None:
+def test_load_jobs_includes_enabled_ci_notebooks() -> None:
     root = Path(__file__).resolve().parents[1]
     mod = _load_ci_execute(root)
     jobs = mod._load_jobs(root)
@@ -25,6 +25,7 @@ def test_load_jobs_includes_three_smoke_notebooks() -> None:
     assert root.joinpath("notebooks", "SMOKE_LAYER_A.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "SMOKE_BOOTSTRAP.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "SMOKE_IMPORTS.ipynb").resolve() in paths
+    assert root.joinpath("notebooks", "CHARTER_SHELL.ipynb").resolve() in paths
 
 
 def test_load_jobs_excludes_all_disabled_paths() -> None:

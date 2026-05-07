@@ -16,6 +16,7 @@ def test_ci_notebooks_config_lists_smoke_paths() -> None:
     assert "SMOKE_BOOTSTRAP.ipynb" in txt
     assert "SMOKE_IMPORTS.ipynb" in txt
     assert "CHARTER_SHELL.ipynb" in txt
+    assert "CHARTER_EXTENDED_PLACEHOLDER.ipynb" in txt
     assert "enabled: false" in txt
 
 
