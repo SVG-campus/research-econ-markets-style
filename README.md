@@ -9,7 +9,7 @@ Notebooks live in `notebooks/` (imported from the legacy flat `Research` layout)
 
 ## Methods
 
-See [METHODS.md](METHODS.md).
+See [METHODS.md](METHODS.md) and the preregistration template [docs/PREREG.md](docs/PREREG.md).
 
 ## Data registry
 

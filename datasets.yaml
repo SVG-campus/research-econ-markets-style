@@ -9,12 +9,18 @@ huggingface:
     split: train[:2%]
     streaming: true
     note: Tiny GLUE stream for CI / dataloader sanity — replace with domain datasets as charters land.
-  - repo_id: takala/financial_phrasebank
-    config: sentences_50agree
-    split: train[:5%]
+  - repo_id: Yelp/yelp_review_full
+    split: train[:1%]
     streaming: true
-    note: Small finance-sentiment stream for pipeline smoke (verify config name if Hub schema changes).
+    note: Consumer sentiment text stream for style / demand proxies (not a trading signal claim).
 
 kaggle: []
 
-search_keywords: [FRED series, equity OHLCV, fashion trend indices]
+
+search_keywords: []
+
+reference_streams:
+  - name: FRED (Federal Reserve Economic Data)
+    url: https://fred.stlouisfed.org/
+    note: Macro series IDs for baselines; respect FRED terms of use.
+
