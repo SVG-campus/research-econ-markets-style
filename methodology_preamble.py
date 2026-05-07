@@ -28,8 +28,36 @@ _ROOT = Path(__file__).resolve().parent
 _REQUIRED = ("run_id", "pillar", "seed", "hypothesis", "metric", "null", "truth_scope")
 
 
+def _smoke_yaml_path() -> Path:
+    """Resolve ``runs/smoke.yaml`` for repo checkouts and ``py-modules`` installs (CI imports from site-packages)."""
+    candidates: list[Path] = []
+    seen: set[Path] = set()
+
+    def add(p: Path) -> None:
+        q = p.resolve()
+        if q not in seen:
+            seen.add(q)
+            candidates.append(q)
+
+    add(Path.cwd() / "runs" / "smoke.yaml")
+    add(_ROOT / "runs" / "smoke.yaml")
+    here = Path.cwd().resolve()
+    for _ in range(8):
+        add(here / "runs" / "smoke.yaml")
+        if here.parent == here:
+            break
+        here = here.parent
+    for p in candidates:
+        if p.is_file():
+            return p
+    raise FileNotFoundError(
+        "runs/smoke.yaml not found (searched cwd, parents, package dir); "
+        "run from pillar repo root or keep runs/smoke.yaml next to methodology_preamble.py."
+    )
+
+
 def load_smoke_caps() -> dict[str, Any]:
-    path = _ROOT / "runs" / "smoke.yaml"
+    path = _smoke_yaml_path()
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
