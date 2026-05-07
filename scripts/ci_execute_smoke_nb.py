@@ -49,15 +49,15 @@ def _execute_one(nb_path: Path, timeout: int) -> None:
 
 def main() -> None:
     import sys
+    import warnings
 
     # Quieter nbclient / pyzmq on Windows (Proactor loop warning).
     if sys.platform == "win32":
         import asyncio
-        import warnings
 
-        if hasattr(asyncio, "WindowsSelectorEventLoopPolicy"):
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore", DeprecationWarning)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
+            if hasattr(asyncio, "WindowsSelectorEventLoopPolicy"):
                 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
     root = Path(__file__).resolve().parents[1]
