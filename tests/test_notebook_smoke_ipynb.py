@@ -17,6 +17,7 @@ def test_ci_notebooks_config_lists_smoke_paths() -> None:
     assert "SMOKE_IMPORTS.ipynb" in txt
     assert "CHARTER_SHELL.ipynb" in txt
     assert "CHARTER_EXTENDED_LIGHT.ipynb" in txt
+    assert "CHARTER_YELP_STREAM_SMOKE.ipynb" in txt
     assert "FUTURE_CHARTER_SLOT.ipynb" in txt
     assert "enabled: false" in txt
 
@@ -125,3 +126,19 @@ def test_ci_notebooks_yaml_schema() -> None:
         t = int(row.get("timeout_seconds", 120))
         assert 30 <= t <= 900
     assert enabled_any, "at least one notebook row must be enabled for CI"
+
+def test_charter_domain_stream_notebook_wired() -> None:
+    p = Path(__file__).resolve().parents[1] / "notebooks" / "CHARTER_YELP_STREAM_SMOKE.ipynb"
+    assert p.is_file(), f"missing {p}"
+    nb = json.loads(p.read_text(encoding="utf-8"))
+    blob_parts: list[str] = []
+    for c in nb.get("cells", []):
+        if c.get("cell_type") != "code":
+            continue
+        src = c.get("source", "")
+        if isinstance(src, list):
+            src = "".join(src)
+        blob_parts.append(src)
+    blob = "\n".join(blob_parts)
+    assert "charter_econ_yelp_stream_smoke" in blob and "load_dataset" in blob
+

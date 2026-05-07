@@ -27,6 +27,10 @@ def test_load_jobs_includes_enabled_ci_notebooks() -> None:
     assert root.joinpath("notebooks", "SMOKE_IMPORTS.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "CHARTER_SHELL.ipynb").resolve() in paths
     assert root.joinpath("notebooks", "CHARTER_EXTENDED_LIGHT.ipynb").resolve() in paths
+    assert root.joinpath("notebooks", "CHARTER_YELP_STREAM_SMOKE.ipynb").resolve() in paths
+
+
+def test_load_jobs_excludes_all_disabled_paths() -> None:
     root = Path(__file__).resolve().parents[1]
     cfg = yaml.safe_load((root / "runs" / "ci_notebooks.yaml").read_text(encoding="utf-8"))
     disabled: list[str] = []
@@ -41,3 +45,4 @@ def test_load_jobs_includes_enabled_ci_notebooks() -> None:
     rels = {p.relative_to(root).as_posix() for p, _ in jobs}
     for rel in disabled:
         assert rel not in rels
+
