@@ -48,6 +48,15 @@ def _execute_one(nb_path: Path, timeout: int) -> None:
 
 
 def main() -> None:
+    import sys
+
+    # Quieter nbclient / pyzmq on Windows (Proactor loop warning).
+    if sys.platform == "win32":
+        import asyncio
+
+        if hasattr(asyncio, "WindowsSelectorEventLoopPolicy"):
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
     root = Path(__file__).resolve().parents[1]
     for nb_path, timeout in _load_jobs(root):
         if not nb_path.is_file():
