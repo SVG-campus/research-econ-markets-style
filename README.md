@@ -36,7 +36,7 @@ Notebook and local MC jobs should respect [runs/smoke.yaml](runs/smoke.yaml) (`n
 
 ## CI notebooks (GitHub Actions)
 
-The ordered list for headless execution lives in [runs/ci_notebooks.yaml](runs/ci_notebooks.yaml) and is run locally via `python scripts/ci_execute_smoke_nb.py` (same command as CI after `pytest`). By default CI runs **three** smoke notebooks plus **`CHARTER_SHELL.ipynb`** and **`CHARTER_EXTENDED_LIGHT.ipynb`**. The disabled **`FUTURE_CHARTER_SLOT.ipynb`** row (no committed file) reserves the next heavy charter path—swap in a real `.ipynb` when ready, verify headless locally, then set `enabled: true`. On CI failure, GitHub Actions attaches `notebooks/`, `runs/`, and the executor script as a downloadable artifact — see [runs/README.md](runs/README.md).
+The ordered list for headless execution lives in [runs/ci_notebooks.yaml](runs/ci_notebooks.yaml) and is run locally via `python scripts/ci_execute_smoke_nb.py` (same command as CI after `pytest`). By default CI runs **six** enabled notebooks: **three** smokes (`SMOKE_*`), **`CHARTER_SHELL.ipynb`**, **`CHARTER_EXTENDED_LIGHT.ipynb`**, and **one pillar-specific domain Hugging Face stream charter** notebook (see `runs/ci_notebooks.yaml` and [runs/README.md](runs/README.md)). The disabled **`FUTURE_CHARTER_SLOT.ipynb`** row (no committed file) reserves the next heavy charter path—swap in a real `.ipynb` when ready, verify headless locally, then set `enabled: true`. On CI failure, GitHub Actions attaches `notebooks/`, `runs/`, and the executor script as a downloadable artifact.
 
 ## Notebook preamble (seeds + run card)
 
