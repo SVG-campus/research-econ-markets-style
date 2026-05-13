@@ -22,3 +22,4 @@ def test_promotion_audit_example_schema() -> None:
     assert isinstance(ids, list) and len(ids) >= 2
     assert "charter_layer_a_multidraw_smoke" in ids
     assert "charter_econ_yelp_stream_smoke" in ids
+    assert ex["run_id"] in ids, "example_entry.run_id must appear in trace_run_ids"

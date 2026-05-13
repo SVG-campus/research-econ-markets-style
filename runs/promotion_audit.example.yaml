@@ -1,6 +1,9 @@
-# Schema-only example — see https://github.com/SVG-campus/Research-Apriori/blob/main/docs/PROMOTION_CHECKLIST.md
+# Schema-only example — see https://github.com/SVG-campus/Research/blob/main/docs/PROMOTION_CHECKLIST.md
 version: 1
 pillar: research-econ-markets-style
+# trace_run_ids must match run_id values emitted by notebooks exercised in CI:
+#   - charter_layer_a_multidraw_smoke → CHARTER_LAYER_A_MULTIDRAW_SMOKE.ipynb
+#   - charter_econ_yelp_stream_smoke → CHARTER_YELP_STREAM_SMOKE.ipynb
 trace_run_ids:
   - charter_layer_a_multidraw_smoke
   - charter_econ_yelp_stream_smoke

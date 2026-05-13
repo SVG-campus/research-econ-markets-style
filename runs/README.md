@@ -20,4 +20,4 @@ Optional rows may set `enabled: false` so future charter notebooks stay listed w
 
 ## Promotion audit (canonical numbers)
 
-Template: [`runs/promotion_audit.example.yaml`](promotion_audit.example.yaml) — copy the `example_entry` shape when recording a promotion; fill **`commit_sha`** (`github.sha` in Actions, `git rev-parse HEAD` locally) and optional **`ci_run_url`**. Full gate: [meta `PROMOTION_CHECKLIST.md`](https://github.com/SVG-campus/Research-Apriori/blob/main/docs/PROMOTION_CHECKLIST.md).
+Template: [`runs/promotion_audit.example.yaml`](promotion_audit.example.yaml) — copy the `example_entry` shape when recording a promotion; keep **`trace_run_ids`** aligned with CI notebook `run_id` fields (multidraw smoke + domain stream charter); fill **`commit_sha`** (`github.sha` in Actions, `git rev-parse HEAD` locally), optional **`ci_run_url`**, and run-card **seed / null** fields before treating metrics as canonical. Full gate: [meta `PROMOTION_CHECKLIST.md`](https://github.com/SVG-campus/Research/blob/main/docs/PROMOTION_CHECKLIST.md) (meta hub; historical remote name **Research-Apriori**).
