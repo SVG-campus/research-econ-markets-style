@@ -1,0 +1,14 @@
+[
+  {"label": 0, "text": "Synthetic one-star placeholder: fictional complaint about cold soup (proxy only)."},
+  {"label": 1, "text": "Synthetic two-star line: imagined lukewarm wait times at a fictional cafe."},
+  {"label": 2, "text": "Synthetic three-star: middle review about an okay fictional haircut."},
+  {"label": 3, "text": "Synthetic four-star: warm praise for fictional staff at a proxy business."},
+  {"label": 4, "text": "Synthetic five-star: glowing fictional note about a book club meetup."},
+  {"label": 0, "text": "Second one-star: imagined poor parking at a fictional venue."},
+  {"label": 1, "text": "Second two-star: mild friction with fictional delivery timing."},
+  {"label": 2, "text": "Second three-star: balanced fictional take on a movie night snack."},
+  {"label": 3, "text": "Second four-star: happy fictional recap of a neighborhood walk."},
+  {"label": 4, "text": "Second five-star: enthusiastic fictional shout-out to a podcast."},
+  {"label": 2, "text": "Extra three-star: neutral fictional weather comment (not a signal)."},
+  {"label": 3, "text": "Extra four-star: cheerful fictional line about a weekend hobby."}
+]
